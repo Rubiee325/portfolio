@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
-import menu from "../assets/menu.png"; // ✅ Local icon
-import close from "../assets/close1.png"; // ✅ Local icon
+import menu from "../assets/image.png"; // ✅ Local icon
+import close from "../assets/close.png"; // ✅ Local icon
 
 const Navbar = () => {
   const [active, setActive] = useState("");
