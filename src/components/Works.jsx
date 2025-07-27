@@ -5,6 +5,9 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
+// Sample GitHub and Web icons (replace with your local assets if needed)
+import githubIcon from "../assets/github.png";
+
 const ProjectCard = ({
   index,
   name,
@@ -13,7 +16,6 @@ const ProjectCard = ({
   image,
   alt,
   source_code_link,
-  live_link,
 }) => {
   return (
     <motion.div variants={fadeIn("up", "spring", index * 0.1 + 0.3, 0.7)}>
@@ -25,23 +27,14 @@ const ProjectCard = ({
             className="h-full w-full rounded-2xl object-cover"
           />
 
+          {/* GitHub Icon Only */}
           <div className="card-img_hover absolute inset-0 m-3 flex justify-end">
-            <div
-              onClick={() => window.open(live_link, "_blank")}
-              className="black-gradient mr-1 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
-            >
-              <img
-                src="https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/webLink.png"
-                alt="live link"
-                className="h-full w-full rounded-full  object-contain"
-              />
-            </div>
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className="black-gradient flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
             >
               <img
-                src="https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/github.png"
+                src={githubIcon}
                 alt="source code"
                 className="h-3/4 w-3/4 object-contain"
               />
@@ -66,24 +59,24 @@ const ProjectCard = ({
   );
 };
 
+
 const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>My work</p>
+        <p className={`${styles.sectionSubText}`}>My work</p>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
       </motion.div>
 
       <div className="flex w-full">
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3  text-[17px] leading-[30px] text-secondary"
+          className="mt-3 text-[17px] leading-[30px] text-secondary"
         >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories and live demos in it. It reflects my
-          ability to solve complex problems, work with different technologies,
-          and manage projects effectively.
+          Following projects showcase my skills and experience through
+          real-world examples. Each project includes a brief description with
+          links to the code repository and live demo, reflecting my ability to
+          build, solve, and deploy.
         </motion.p>
       </div>
 

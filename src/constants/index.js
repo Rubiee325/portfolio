@@ -49,325 +49,236 @@ const navLinks = [
   },
 ];
 
-const services = [
-  {
-    title: "Web Developer",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/web.png",
-  },
-  {
-    title: "React Developer",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/frontend.png",
-  },
-  {
-    title: "Backend Developer",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/backend.png",
-  },
-  {
-    title: "Full Stack Developer",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/fullStack.png",
-  },
-];
+// const services = [
+//   {
+//     title: "Web Developer",
+//     icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/web.png",
+//   },
+//   {
+//     title: "React Developer",
+//     icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/frontend.png",
+//   },
+//   {
+//     title: "Backend Developer",
+//     icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/backend.png",
+//   },
+//   {
+//     title: "Full Stack Developer",
+//     icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/fullStack.png",
+//   },
+// ];
 
 const technologies = [
   {
     name: "HTML 5",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/html.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   },
   {
     name: "CSS 3",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/css.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
   {
     name: "JavaScript",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/javascript.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
-    name: "Tailwind CSS",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/tailwind.png",
+    name: "Django",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
   },
   {
     name: "React JS",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/reactjs.png",
-  },
-  {
-    name: "Redux",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/redux.png",
-  },
-  {
-    name: "Formik",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/formik-icon.png",
-  },
-  {
-    name: "Matirial UI",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/material-ui.png",
-  },
-
-  {
-    name: "Scss",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/scss.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
   {
     name: "Node JS",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/nodejs.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   },
   {
     name: "Express JS",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/expressjs.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   },
   {
-    name: "MongoDB",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/mongodb.png",
+    name: "SQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   },
   {
     name: "Mongoose",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/mongoose.png",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
   },
   {
-    name: "Git",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/git.png",
+    name: "C#",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
   },
   {
-    name: "GitHup",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/github.png",
-  },
-  {
-    name: "EC2",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/ec2.png",
-  },
-  {
-    name: "S3",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tech/Amazon-S3.png",
+    name: "Web Development",
+    icon: "https://cdn-icons-png.flaticon.com/512/2721/2721286.png",
   },
 ];
 
 const tools = [
   {
     name: "VS Code",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tools/vscode.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/906/906324.png", // VS Code
   },
   {
     name: "ChatGPT",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tools/ChatGPT.png",
+    icon: "https://images.icon-icons.com/4252/PNG/96/chatgpt_logo_chatgpt_logo_square_green_gpt_ia_openai_icon_264977.png", // ChatGPT icon
   },
   {
-    name: "Chrome",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tools/chrome.png",
+    name: "Google",
+    icon: "https://cdn-icons-png.flaticon.com/512/300/300221.png", // Google
   },
   {
-    name: "Impress",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tools/Impress.png",
+    name: "Figma",
+    icon: "https://cdn-icons-png.flaticon.com/512/5968/5968705.png", // Figma
   },
   {
-    name: "Mongodb Compass",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tools/mongodbCompass.png",
-  },
-  {
-    name: "Postman",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tools/postman.png",
-  },
-  {
-    name: "Ubuntu",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/tools/ubuntu.png",
-  },
+    name: "Canva",
+    icon: "https://cdn-icons-png.flaticon.com/512/5968/5968701.png", // Canva
+  }
 ];
+
+
 
 const experiences = [
   {
-    title: "Frontend Development",
-    company_name: "React.js, Redux, Formik with Yup",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/frontend.png",
-    iconBg: "#383E56",
-    date: "Jun 2022 - Present",
+    title: "Web Development Intern",
+    company_name: "Kevell Corp",
+    icon: "https://img.icons8.com/color/96/web.png", // 🌐 Web Development icon
+    iconBg: "#F0F8FF",
+    date: "December 2023",
     points: [
-      "Advanced skills in React.js for building dynamic web applications.",
-      "Expertise in Redux for efficient state management.",
-      "Experience with Formik and Yup for seamless form handling and validation.",
-      "Applied Flux architecture to enhance data flow and maintainability.",
-      "Implemented advanced architectural patterns for scalable applications.",
-      "These are just a few of the many libraries",
+      "Completed a 15-day internship focused on Web Development.",
+      "Built a Task Timer web app to help users manage and track daily tasks with time logs.",
+      "Designed and implemented key features including task creation, logging, and completion timers.",
     ],
   },
   {
-    title: "UI Designing",
-    company_name: "Material UI, Framer motion, Tailwind CSS, SCSS",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/design.png",
-    iconBg: "white",
-    date: "Sep 2022 - Present",
+    title: "C# and .NET Intern",
+    company_name: "Zealsoft Technology Solutions",
+    icon: "https://img.icons8.com/color/96/c-sharp-logo.png", // 🔷 C# logo icon
+    iconBg: "#E6E6FA",
+    date: "May 2024",
     points: [
-      "Proficient in Material UI for creating modern and responsive user interfaces.",
-      "Expertise in Framer Motion for crafting smooth and interactive animations.",
-      "Skillful use of Tailwind CSS to streamline and enhance UI styling.",
-      "Leveraged SCSS to seamlessly integrate Tailwind CSS utility classes, optimizing code and enabling custom class creation when required.",
-      "Ability to create responsive layouts for diverse screen sizes and devices.",
-      "Prioritizing user experience and usability in UI design projects.",
-    ],
-  },
-  {
-    title: "Backend Development",
-    company_name: "Node js, Express js, Mongoose, S3",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/backend.png",
-    iconBg: "#383E56",
-    date: "Dec 2022 - Present",
-    points: [
-      "Proficient in Node.js for building robust and scalable server-side applications.",
-      "Strong command of Express.js for creating RESTful APIs and routing.",
-      "Experience in using MongoDB and Mongoose, including the strategic use of indexing, for efficient data modeling, storage, and retrieval.",
-      "Strategies for optimizing application performance and scalability.",
-      "Integration of AWS S3 for secure and scalable file storage and retrieval",
-      "Skillful use of Postman for API testing, validation, and documentation",
-      "Familiarity with the Model-View-Controller (MVC) pattern for structured and maintainable code",
-      "Application of Clean Architecture principles for modular and testable codebases",
-      "Implementation of security measures, including authorization, and authentication mechanisms to protect data.",
-      "Expertise in error handling, debugging, and performance optimization.",
-    ],
-  },
-  {
-    title: "AWS and other ",
-    company_name: "EC2, S3, IAM, DSA",
-    icon: "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/cloud.png",
-    iconBg: "black",
-    date: "Jun 2023 - Present",
-    points: [
-      "Proficiency in managing AWS Elastic Compute Cloud (EC2) instances for scalable computing.",
-      "Skillful use of AWS S3 for secure and scalable object storage.",
-      "Experience in configuring AWS Identity and Access Management (IAM) for user and resource access control.",
-      "Strong understanding of fundamental data structures and algorithms for efficient problem-solving. Knowledge of Big O notation for analyzing algorithmic complexity and performance.",
-      "Eager to expand cloud service expertise and contribute to cloud-based solutions.",
+      "Developed a basic Fitness Tracker application using C# and .NET framework.",
+      "Implemented features like workout logging, calorie monitoring, and fitness goals.",
+      "Contributed to building an intuitive UI for daily health tracking.",
     ],
   },
 ];
 
-const testimonials = [
+
+
+const achievements = [
   {
-    testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Rajesh proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
-    image: "https://randomuser.me/api/portraits/women/4.jpg",
+   title: "Gold Medalist",
+    description: "Awarded Gold Medal for Academic Excellence (2023–2024).",
+    icon: "https://tse3.mm.bing.net/th/id/OIP.lE8EkH2h2ebxsAsS_MazVQHaHa?pid=Api&P=0&h=180",  // or wherever your icon is
+    link: "https://www.linkedin.com/posts/jeyarubi-m-37891b280_goldmedal-academicexcellence-computerscience-activity-7319719803902914561-5khc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAER6yUwBDP6-ywqS6tmU-x__dUMSGqAPAwM",
   },
   {
-    testimonial:
-      "I've never met a web developer who truly cares about their clients success like Rajesh does.",
-    name: "Chris Brown",
-    designation: "COO",
-    company: "DEF Corp",
-    image: "https://randomuser.me/api/portraits/men/5.jpg",
+    title: "LeetCode Problem Solver",
+    description:
+      "Solved 500+ coding problems on LeetCode, boosting problem-solving and algorithmic thinking.",
+    icon: "https://tse2.mm.bing.net/th/id/OIP.cNJCBLV2Loe3Tqwu6sHTkAHaHa?pid=Api&P=0&h=180",
+    link: "https://leetcode.com/u/Rubiiee/",
   },
   {
-    testimonial:
-      "After Rajesh optimized our website, our traffic increased by 50%. We can't thank them enough!",
-    name: "Lisa Wang",
-    designation: "CTO",
-    company: "456 Enterprises",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    title: "SkillRack Challenges",
+    description:
+      "Solved 870+ coding problems on SkillRack, strengthening logic, patterns, and debugging skills.",
+    icon: "https://tse3.mm.bing.net/th/id/OIP.SQ4ausTfEz4qATzj7K63PAHaHa?pid=Api&P=0&h=180",
+    link: "http://www.skillrack.com/profile/410808/732efbcca5618fe76d8cebe6148eda5c9c7f2e6e",
   },
+  {
+    title: "SIH Top 30 - Bail Reckoner Project",
+    description:
+      "Our innovative project 'Bail Reckoner' was selected in the Top 30 teams for the Smart India Hackathon 2024.",
+    icon: "https://tse2.mm.bing.net/th/id/OIP.plXlnGnDPttZKPTIrF549AHaEK?pid=Api&P=0&h=180",
+    // or any proposal PDF or GitHub repo if you have
+  }
 ];
+
+
 
 const projects = [
   {
-    name: "Shop",
+    name: "FitTrack",
     description:
-      "A web-based platform that allows users to search, and order products. admin can manage products, orders, reviews, and users. Providing a convenient and efficient solution for people who need the best online shopping experience.",
+      "A full-featured fitness tracker and meal planner built using Django. Includes personalized dashboards, water intake tracking, workout logging, BMI calculator, diet plans, and recipe suggestions with clean UI and animations.",
     tags: [
       {
-        name: "MERN",
+        name: "Django",
         color: "blue-text-gradient",
       },
       {
-        name: "Retux",
+        name: "HTML/CSS",
         color: "green-text-gradient",
       },
       {
-        name: "Material UI",
+        name: "JavaScript",
         color: "pink-text-gradient",
       },
     ],
-    image:
-      "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/e-commerce.png",
-    alt: "E-Commerce",
-    source_code_link: "https://github.com/Rajeshesh/newShop",
-    live_link: "http://3.82.129.40:8000/",
+    image: "https://tse1.mm.bing.net/th/id/OIP.UBC7ArksgdESwemqtgvJxwHaHB?pid=Api&P=0&h=180", // 🔁 Replace with your image
+    alt: "FitTrack",
+    source_code_link: "https://github.com/Rubiee325/fittrack",
+    live_link: "", // if deployed, add live link
   },
   {
-    name: "Pro Connect Up",
+    name: "Faculty Career Management",
     description:
-      "A web application that enables users to find people with the same interest in their career, find a person for freelance work, search for job openings, and locate available jobs based on their current location.",
+      "A web platform to manage faculty career profiles, achievements, publications, and course tracking. Designed for academic institutions to streamline faculty performance data.",
     tags: [
       {
-        name: "MERN",
+        name: "HTML/CSS",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "JavaScript",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "Bootstrap",
         color: "pink-text-gradient",
       },
     ],
-    image:
-      "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/proConnectup.jpg",
-    alt: "Pro Connect Up",
-
-    source_code_link: "https://github.com/Rajeshesh/ProConnectUp",
-    live_link: "https://github.com/Rajeshesh/ProConnectUp",
+    image: "https://tse3.mm.bing.net/th/id/OIP.pD58Xeo-pSZ0Gl0Ew15q5wHaGK?pid=Api&P=0&h=180", // 🔁 Replace with your image
+    alt: "Faculty Career Management",
+    source_code_link: "https://github.com/yourusername/faculty-career-management",
+    live_link: "", // optional
   },
   {
-    name: "My Portfolio",
+    name: "Bail Reckoner",
     description:
-      "My portfolio features a collection of projects that reflect my commitment to delivering top-tier web solutions. I take pride in developing user-friendly and efficient applications.",
+      "An informational and utility web tool built for legal aid and awareness, designed to guide users through the bail eligibility process with form-based logic and simplified legal references.",
     tags: [
       {
-        name: "react.js",
+        name: "HTML",
         color: "blue-text-gradient",
       },
       {
-        name: "tailwind CSS",
+        name: "CSS",
         color: "green-text-gradient",
       },
       {
-        name: "framer-motion",
+        name: "JS",
         color: "pink-text-gradient",
       },
     ],
-    image:
-      "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/portfolio.png",
-    alt: "Portfolio",
-    source_code_link: "https://github.com/Rajeshesh/portfolio",
-    live_link: "https://mern-rajesh-portfolio.web.app/",
+    image: "https://tse2.mm.bing.net/th/id/OIP.plXlnGnDPttZKPTIrF549AHaEK?pid=Api&P=0&h=180", // 🔁 Replace with your image
+    alt: "Bail Reckoner",
+    source_code_link: "https://github.com/yourusername/bail-reckoner",
+    live_link: "", // optional
   },
-  // {
-  //   name: "PG Management",
-  //   description:
-  //     "A comprehensive PG Management platform that allows Admin to manage people who are staying in their PG and provide them with the best possible service.",
-  //   tags: [
-  //     {
-  //       name: "nextjs",
-  //       color: "blue-text-gradient",
-  //     },
-  //     {
-  //       name: "supabase",
-  //       color: "green-text-gradient",
-  //     },
-  //     {
-  //       name: "scss",
-  //       color: "pink-text-gradient",
-  //     },
-  //   ],
-  //   image: 'https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/portfolio.png',
-  //   source_code_link: "https://github.com/Rajeshesh",
-  //   live_link: "http://3.82.129.40:8000/",
-  // },
 ];
+
 
 export {
   navLinks,
-  services,
   technologies,
   experiences,
-  testimonials,
+  achievements,
   projects,
   tools,
 };
