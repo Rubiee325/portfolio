@@ -3,32 +3,27 @@ import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
+import menu from "../assets/menu.png"; // ✅ Local icon
+import close from "../assets/close1.png"; // ✅ Local icon
 
 const Navbar = () => {
   const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(scrollTop > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } fixed top-0 z-20 flex w-full items-center py-5 ${
+      className={`${styles.paddingX} fixed top-0 z-20 flex w-full items-center py-5 ${
         scrolled ? "bg-primary" : "bg-transparent"
       }`}
     >
@@ -42,12 +37,13 @@ const Navbar = () => {
           }}
         >
           <img src="./logo.png" alt="logo" className="h-9 w-9 object-contain" />
-          <p className="flex cursor-pointer text-[18px] font-bold text-white ">
+          <p className="flex cursor-pointer text-[18px] font-bold text-white">
             Jeyarubi &nbsp;
             <span className="hidden sm:block"> | MERN Stack Developer</span>
           </p>
         </Link>
 
+        {/* Desktop Nav Links */}
         <ul className="hidden list-none flex-row gap-10 sm:flex">
           {navLinks.map((nav) => (
             <li
@@ -62,22 +58,19 @@ const Navbar = () => {
           ))}
         </ul>
 
+        {/* ✅ Hamburger menu for small screens */}
         <div className="flex flex-1 items-center justify-end sm:hidden">
           <img
-            src={
-              toggle
-                ? "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/close.svg"
-                : "https://rajesh-mern-stack-portfolio-images.s3.ap-south-1.amazonaws.com/assets/menu.svg"
-            }
+            src={toggle ? close : menu} // ✅ Local asset used here
             alt="menu"
-            className="h-[28px] w-[28px] object-contain"
+            className="h-[28px] w-[28px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
 
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } black-gradient absolute right-0 top-20 z-10 mx-4 my-2 min-w-[140px] rounded-xl p-6`}
+            } bg-[#1a1a1a] absolute right-0 top-20 z-50 mx-4 my-2 min-w-[140px] rounded-xl p-6`}
           >
             <ul className="flex flex-1 list-none flex-col items-start justify-end gap-4">
               {navLinks.map((nav) => (
@@ -87,7 +80,7 @@ const Navbar = () => {
                     active === nav.title ? "text-white" : "text-secondary"
                   }`}
                   onClick={() => {
-                    setToggle(!toggle);
+                    setToggle(false);
                     setActive(nav.title);
                   }}
                 >
