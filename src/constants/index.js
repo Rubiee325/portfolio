@@ -179,7 +179,7 @@ const achievements = [
   {
     title: "LeetCode Problem Solver",
     description:
-      "Solved 500+ coding problems on LeetCode, boosting problem-solving and algorithmic thinking.",
+      "Solved 100+ coding problems on LeetCode, boosting problem-solving and algorithmic thinking.",
     icon: "https://tse2.mm.bing.net/th/id/OIP.cNJCBLV2Loe3Tqwu6sHTkAHaHa?pid=Api&P=0&h=180",
     link: "https://leetcode.com/u/Rubiiee/",
   },
