@@ -170,12 +170,12 @@ const experiences = [
 
 
 const achievements = [
-  {
-   title: "Gold Medalist",
-    description: "Awarded Gold Medal for Academic Excellence (2023–2024).",
-    icon: "https://tse3.mm.bing.net/th/id/OIP.lE8EkH2h2ebxsAsS_MazVQHaHa?pid=Api&P=0&h=180",  // or wherever your icon is
-    link: "https://www.linkedin.com/posts/jeyarubi-m-37891b280_goldmedal-academicexcellence-computerscience-activity-7319719803902914561-5khc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAER6yUwBDP6-ywqS6tmU-x__dUMSGqAPAwM",
-  },
+  // {
+  //  title: "Gold Medalist",
+  //   description: "Awarded Gold Medal for Academic Excellence (2023–2024).",
+  //   icon: "https://tse3.mm.bing.net/th/id/OIP.lE8EkH2h2ebxsAsS_MazVQHaHa?pid=Api&P=0&h=180",  // or wherever your icon is
+  //   link: "https://www.linkedin.com/posts/jeyarubi-m-37891b280_goldmedal-academicexcellence-computerscience-activity-7319719803902914561-5khc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAER6yUwBDP6-ywqS6tmU-x__dUMSGqAPAwM",
+  // },
   {
     title: "LeetCode Problem Solver",
     description:
@@ -191,12 +191,13 @@ const achievements = [
     link: "http://www.skillrack.com/profile/410808/732efbcca5618fe76d8cebe6148eda5c9c7f2e6e",
   },
   {
-    title: "SIH Top 30 - Bail Reckoner Project",
-    description:
-      "Our innovative project 'Bail Reckoner' was selected in the Top 30 teams for the Smart India Hackathon 2024.",
-    icon: "https://tse2.mm.bing.net/th/id/OIP.plXlnGnDPttZKPTIrF549AHaEK?pid=Api&P=0&h=180",
-    // or any proposal PDF or GitHub repo if you have
-  }
+  title: "Academic Excellence Gold Medal (2023-2024)",
+  description:
+    "Recognized with the Gold Medal for securing top rank and demonstrating exceptional academic excellence in the 2023–2024 academic year.",
+  icon: "https://tse3.mm.bing.net/th/id/OIP.YUhSamv0FHCMBLPBaCNbPwHaE8?pid=Api&P=0&h=180",
+  link: "https://www.linkedin.com/posts/jeyarubi-m-37891b280_goldmedal-academicexcellence-computerscience-activity-7319719803902914561-5khc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAER6yUwBDP6-ywqS6tmU-x__dUMSGqAPAwM",
+}
+
 ];
 
 
@@ -245,7 +246,7 @@ const projects = [
     ],
     image: "https://tse3.mm.bing.net/th/id/OIP.pD58Xeo-pSZ0Gl0Ew15q5wHaGK?pid=Api&P=0&h=180", // 🔁 Replace with your image
     alt: "Faculty Career Management",
-    source_code_link: "https://github.com/yourusername/faculty-career-management",
+    source_code_link: "https://github.com/Rubiee325/Faculty-career-Advancement",
     live_link: "", // optional
   },
   {
@@ -266,9 +267,32 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: "https://tse2.mm.bing.net/th/id/OIP.plXlnGnDPttZKPTIrF549AHaEK?pid=Api&P=0&h=180", // 🔁 Replace with your image
+    image: "https://tse4.mm.bing.net/th/id/OIP.UDwt0kmkJGIbnymppbiwEAHaE8?pid=Api&P=0&h=180", // 🔁 Replace with your image
     alt: "Bail Reckoner",
     source_code_link: "https://github.com/yourusername/bail-reckoner",
+    live_link: "", // optional
+  },
+  {
+    name: "Student Management System-CRUD ",
+    description:
+      "An informational and utility web application designed for managing student records, enabling administrators to create, view, update, and delete student details through form-based workflows, with structured data handling and simplified user interactions.",
+    tags: [
+      {
+        name: "DotNet",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "Next JS",
+        color: "green-text-gradient",
+      },
+      {
+        name: "MySQL",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: "https://tse3.mm.bing.net/th/id/OIP.-TVi_DYsOiBXpHeGx_WRuwHaC9?pid=Api&P=0&h=180", // 🔁 Replace with your image
+    alt: "Student Management ",
+    source_code_link: "https://github.com/Rubiee325/student-management-system",
     live_link: "", // optional
   },
 ];
