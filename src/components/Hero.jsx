@@ -21,7 +21,7 @@ const Hero = () => {
       >
         <motion.div variants={textVariant()} className="relative text-center">
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className="text-[#915EFF]">Jeyarubi</span>
+            Hi, I'm <span className="text-[#915EFF]">JEYARUBI</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
             I develop Full Stack Web Applications using{" "}
@@ -56,7 +56,7 @@ const Hero = () => {
       >
         <Avatar
           alt="My Image"
-          src="/myImage1.png"
+          src="/rubi.jpg"
           sx={{
             width: 300,
             height: 300,
