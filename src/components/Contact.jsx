@@ -45,22 +45,6 @@ const Contact = () => {
 };
 
 
-
-
-      const data = await res.json();
-
-      if (data.success) {
-        setStatus("✅ Message sent successfully!");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setStatus("❌ Failed to send message. Try again.");
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus("❌ Server error. Try again later.");
-    }
-  };
-
   return (
     <>
       {/* Section Title */}
