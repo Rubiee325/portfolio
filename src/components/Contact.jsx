@@ -29,6 +29,7 @@ const Contact = () => {
         body: JSON.stringify(form), // ✅ USE FORM DATA
       }
     );
+    //force redeploy
     const data = await res.json();
 
     if (data.success) {
