@@ -15,19 +15,34 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus("Sending...");
+  e.preventDefault();
+  setStatus("Sending...");
 
-    try {
-      const res = await fetch("https://portfolio-khua.onrender.com/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-      name: "Test User",
-      email: "test@mail.com",
-      message: "Hello from deployed app"
-  })
-});
+  try {
+    const res = await fetch(
+      "https://portfolio-khua.onrender.com/api/contact",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form), // ✅ USE FORM DATA
+      }
+    );
+    const data = await res.json();
+
+    if (data.success) {
+      setStatus("✅ Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
+    } else {
+      setStatus("❌ Failed to send message. Try again.");
+    }
+  } catch (err) {
+    console.error(err);
+    setStatus("❌ Server error. Try again later.");
+  }
+};
+
 
 
 
