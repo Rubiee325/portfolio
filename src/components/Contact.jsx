@@ -19,11 +19,17 @@ const Contact = () => {
     setStatus("Sending...");
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch("https://portfolio-khua.onrender.com/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+      name: "Test User",
+      email: "test@mail.com",
+      message: "Hello from deployed app"
+  })
+});
+
+
 
       const data = await res.json();
 
