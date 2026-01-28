@@ -1,18 +1,14 @@
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from "../utils/motion";
+import { textVariant } from "../utils/motion";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
 import ParticlesContainer from "./ParticlesContainer";
-import { Avatar, useMediaQuery } from "@mui/material";
+import { Avatar } from "@mui/material";
 
 const Hero = () => {
-  const isSmallScreen = useMediaQuery("(max-width:640px)");
-
   return (
-    <section
-      className={`flex-between-center relative mx-auto h-screen w-full flex-col`}
-    >
+    <section className="flex-between-center relative mx-auto h-screen w-full flex-col">
       <ParticlesContainer />
 
       {/* Centered Title and Paragraph */}
