@@ -4,12 +4,8 @@ import { styles } from "../styles";
 import { technologies, tools } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
-import { useMediaQuery } from "@mui/material";
 
 const About = () => {
-  const isSmallScreen = useMediaQuery("(max-width:587px)");
-  const isLargeScreen = useMediaQuery("(min-width:1248px)");
-
   return (
     <>
       {/* Overview Title and Paragraph - Centered */}
@@ -33,32 +29,32 @@ const About = () => {
       </motion.p>
 
       {/* Skills Section */}
-      {/* Skills Section */}
-<div className="flex-center-center mt-20 flex-col">
-  <h3 className={`${styles.sectionHeadText} marker`}>Skills</h3>
-  <div className="mt-2 flex flex-wrap justify-center gap-10">
-    {technologies.map((item, i) => (
-      <div key={i} className="flex-around-center w-[80px] flex-col">
-        <img src={item.icon} width="100%" alt={item.name} />
-        <p className="text-center">{item.name}</p>
+      <div className="flex-center-center mt-20 flex-col">
+        <h3 className={`${styles.sectionHeadText} marker`}>Skills</h3>
+        <div className="mt-2 flex flex-wrap justify-center gap-10">
+          {technologies.map((item, i) => (
+            <div key={i} className="flex-around-center w-[80px] flex-col">
+              <img src={item.icon} width="100%" alt={item.name} />
+              <p className="text-center">{item.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
-{/* Tools and Software Section */}
-<div className="flex-center-center mt-20 flex-col">
-  <h3 className={`${styles.sectionHeadText} marker`}>Tools and Software</h3>
-  <div className="mt-2 flex flex-wrap justify-center gap-10">
-    {tools.map((item, i) => (
-      <div key={i} className="flex-around-center w-[80px] flex-col">
-        <img src={item.icon} width="100%" alt={item.name} />
-        <p className="text-center">{item.name}</p>
+      {/* Tools and Software Section */}
+      <div className="flex-center-center mt-20 flex-col">
+        <h3 className={`${styles.sectionHeadText} marker`}>
+          Tools and Software
+        </h3>
+        <div className="mt-2 flex flex-wrap justify-center gap-10">
+          {tools.map((item, i) => (
+            <div key={i} className="flex-around-center w-[80px] flex-col">
+              <img src={item.icon} width="100%" alt={item.name} />
+              <p className="text-center">{item.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
-
     </>
   );
 };
