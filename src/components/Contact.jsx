@@ -26,10 +26,10 @@ const Contact = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(form), // ✅ USE FORM DATA
+        body: JSON.stringify(form),
       }
     );
-    //force redeploy
+
     const data = await res.json();
 
     if (data.success) {
@@ -38,8 +38,8 @@ const Contact = () => {
     } else {
       setStatus("❌ Failed to send message. Try again.");
     }
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     setStatus("❌ Server error. Try again later.");
   }
 };
