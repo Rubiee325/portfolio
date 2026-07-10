@@ -162,7 +162,7 @@ const Contact = () => {
           Thanks for scrolling.
         </h1>
        <a
-  href="/Jeyarubi-resume.pdf"
+  href="/Jeyarubi-resume (4).pdf"
   target="_blank"
   rel="noopener noreferrer"
 >
