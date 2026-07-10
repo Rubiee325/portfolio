@@ -26,6 +26,7 @@ import mongodb from "./tech/mongodb.png";
 import mongoose from "./tech/mongoose.png";
 import git from "./tech/git.png";
 import github from "./github.png";
+import jira from "./jira.png"
 import S3 from "./tech/Amazon-S3.png";
 import EC2 from "./tech/ec2.png";
 
@@ -79,4 +80,5 @@ export {
   e_commerce,
   proConnectup,
   portfolio,
+  jira,
 };

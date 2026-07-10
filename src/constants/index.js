@@ -121,8 +121,12 @@ const tools = [
     icon: "https://cdn-icons-png.flaticon.com/512/906/906324.png", // VS Code
   },
   {
+  name: "Jira",
+  icon: "https://img.icons8.com/?size=100&id=oROcPah5ues6&format=png&color=000000", // Jira
+},
+  {
     name: "ChatGPT",
-    icon: "https://images.icon-icons.com/4252/PNG/96/chatgpt_logo_chatgpt_logo_square_green_gpt_ia_openai_icon_264977.png", // ChatGPT icon
+    icon: "https://img.icons8.com/?size=100&id=ka3InxFU3QZa&format=png&color=000000",
   },
   {
     name: "Google",
@@ -146,7 +150,7 @@ const experiences = [
     company_name: "Kevell Corp",
     icon: "https://img.icons8.com/color/96/web.png", // 🌐 Web Development icon
     iconBg: "#F0F8FF",
-    date: "December 2023",
+    date: "December 2024",
     points: [
       "Completed a 15-day internship focused on Web Development.",
       "Built a Task Timer web app to help users manage and track daily tasks with time logs.",
@@ -158,7 +162,7 @@ const experiences = [
     company_name: "Zealsoft Technology Solutions",
     icon: "https://img.icons8.com/color/96/c-sharp-logo.png", // 🔷 C# logo icon
     iconBg: "#E6E6FA",
-    date: "May 2024",
+    date: "May 2025",
     points: [
       "Developed a basic Fitness Tracker application using C# and .NET framework.",
       "Implemented features like workout logging, calorie monitoring, and fitness goals.",
@@ -226,6 +230,42 @@ const projects = [
     source_code_link: "https://github.com/Rubiee325/fittrack",
     live_link: "", // if deployed, add live link
   },
+  {
+  name: "Portfolio Website",
+  description:
+    "A responsive personal portfolio showcasing projects, technical skills, certifications, and contact information.",
+  tags: [
+    { name: "React", color: "blue-text-gradient" },
+    { name: "Three.js", color: "green-text-gradient" },
+    { name: "Tailwind", color: "pink-text-gradient" },
+  ],
+  image:"https://tse4.mm.bing.net/th/id/OIP.K93D9qTOCRpovUcylkV0NwHaE8?r=0&pid=Api&P=0&h=180",
+  source_code_link: "https://github.com/Rubiee325/portfolio",
+},
+  {
+  name: "SkinSense",
+  description:
+    "A deep learning-based skin disease detection system that classifies skin conditions from uploaded images.",
+  tags: [
+    { name: "Python", color: "blue-text-gradient" },
+    { name: "Django", color: "green-text-gradient" },
+    { name: "TensorFlow", color: "pink-text-gradient" },
+  ],
+  image: "https://tse1.mm.bing.net/th/id/OIP.pIV5IzVhpfd4ullEwSSL8gHaD4?r=0&pid=Api&P=0&h=180",
+  source_code_link: "https://github.com/Rubiee325/Skinsense",
+},
+{
+  name: "Dashboard Builder",
+  description:
+    "A customizable dashboard application with drag-and-drop widgets, charts, KPI cards, and responsive layouts built using React.",
+  tags: [
+    { name: "React", color: "blue-text-gradient" },
+    { name: "JavaScript", color: "green-text-gradient" },
+    { name: "CSS", color: "pink-text-gradient" },
+  ],
+  image:"https://tse1.mm.bing.net/th/id/OIF.HS3Qu62muHk8RCanOQgHEg?r=0&pid=Api&P=0&h=180",
+  source_code_link: "https://github.com/Rubiee325/Dashboard-Builder",
+},
   {
     name: "Faculty Career Management",
     description:

@@ -20,9 +20,9 @@ const Hero = () => {
             Hi, I'm <span className="text-[#915EFF]">JEYARUBI</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            I develop Full Stack Web Applications using{" "}
+            
             <br className="hidden sm:block" />
-            <span className="gradient-text">MERN Stack</span>
+            <span className="gradient-text">Full Stack Developer | Software Tester</span>
           </p>
 
           {/* Glowing Circle */}
