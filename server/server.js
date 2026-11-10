@@ -29,7 +29,6 @@ const startServer = async () => {
   }
 };
 
-// -------------------- MIDDLEWARE --------------------
 app.use(
   cors({
     origin: (origin, callback) => {
@@ -41,41 +40,31 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json());
+app.use(express.json({ limit: "20kb" }));
 
-// -------------------- TEST ROUTE --------------------
 app.get("/", (req, res) => {
   res.send("✅ Backend is running");
 });
 
-// -------------------- CONTACT API --------------------
 app.post("/api/contact", async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, email, service, budget, timeline, message } = req.body;
 
-    if (!name || !email || !message) {
+    if (!name?.trim() || !email?.trim() || !message?.trim()) {
       return res.status(400).json({
         success: false,
-        message: "All fields are required",
+        message: "Name, email, and project details are required",
       });
     }
 
-    const newMessage = new Contact({
-      name,
-      email,
-      message,
-    });
-
-    await newMessage.save();
-
-    console.log("✅ Saved to MongoDB");
+    await Contact.create({ name, email, service, budget, timeline, message });
 
     return res.status(201).json({
       success: true,
-      message: "Message saved successfully!",
+      message: "Project inquiry received successfully!",
     });
   } catch (err) {
-    console.error("❌ Error saving contact:", err);
+    console.error("❌ Error saving contact:", err.message);
     return res.status(500).json({
       success: false,
       message: "Server error",

@@ -5,8 +5,26 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-// Sample GitHub and Web icons (replace with your local assets if needed)
 import githubIcon from "../assets/github.png";
+
+// Keep projects already listed in the portfolio and include the Finance Dashboard repo.
+const additionalProjects = [
+  {
+    name: "Finance Dashboard",
+    description:
+      "A finance dashboard application for organizing financial information and reviewing key metrics in a clear, interactive interface.",
+    tags: [
+      { name: "React", color: "blue-text-gradient" },
+      { name: "JavaScript", color: "green-text-gradient" },
+      { name: "Dashboard", color: "pink-text-gradient" },
+    ],
+    image:
+      "https://tse1.mm.bing.net/th/id/OIF.HS3Qu62muHk8RCanOQgHEg?r=0&pid=Api&P=0&h=180",
+    alt: "Finance Dashboard project preview",
+    source_code_link: "https://github.com/Rubiee325/financedashboard",
+    live_link: "",
+  },
+];
 
 const ProjectCard = ({
   index,
@@ -23,22 +41,20 @@ const ProjectCard = ({
         <div className="relative h-[230px] w-full">
           <img
             src={image}
-            alt={alt}
+            alt={alt || name}
             className="h-full w-full rounded-2xl object-cover"
+            loading="lazy"
           />
-
-          {/* GitHub Icon Only */}
           <div className="card-img_hover absolute inset-0 m-3 flex justify-end">
-            <div
-              onClick={() => window.open(source_code_link, "_blank")}
+            <a
+              href={source_code_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${name} source code on GitHub`}
               className="black-gradient flex h-10 w-10 cursor-pointer items-center justify-center rounded-full"
             >
-              <img
-                src={githubIcon}
-                alt="source code"
-                className="h-3/4 w-3/4 object-contain"
-              />
-            </div>
+              <img src={githubIcon} alt="" className="h-3/4 w-3/4 object-contain" />
+            </a>
           </div>
         </div>
 
@@ -49,7 +65,7 @@ const ProjectCard = ({
 
         <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag, i) => (
-            <p key={i} className={`text-[14px] ${tag.color}`}>
+            <p key={`${tag.name}-${i}`} className={`text-[14px] ${tag.color}`}>
               #{tag.name}
             </p>
           ))}
@@ -59,8 +75,9 @@ const ProjectCard = ({
   );
 };
 
-
 const Works = () => {
+  const allProjects = [...projects, ...additionalProjects];
+
   return (
     <>
       <motion.div variants={textVariant()}>
@@ -81,8 +98,8 @@ const Works = () => {
       </div>
 
       <div className="flex-around-center mt-20 flex-wrap gap-7">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} index={index} {...project} />
+        {allProjects.map((project, index) => (
+          <ProjectCard key={project.name} index={index} {...project} />
         ))}
       </div>
     </>
