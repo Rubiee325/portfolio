@@ -7,11 +7,41 @@ import Contact from "./models/Contact.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "http://localhost:3000",
+  "http://127.0.0.1:3000",
+].filter(Boolean);
+
+const startServer = async () => {
+  try {
+    const mongoUri = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/rubi";
+    await mongoose.connect(mongoUri);
+    console.log("✅ MongoDB Connected:", mongoose.connection.name);
+
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on http://localhost:${PORT}`);
+    });
+  } catch (err) {
+    console.error("❌ MongoDB Connection Error:", err.message);
+    process.exit(1);
+  }
+};
 
 // -------------------- MIDDLEWARE --------------------
-app.use(cors({ origin: "*" })); // Allow all origins
-app.use(express.json()); // IMPORTANT for req.body
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
+app.use(express.json());
 
 // -------------------- TEST ROUTE --------------------
 app.get("/", (req, res) => {
@@ -21,12 +51,8 @@ app.get("/", (req, res) => {
 // -------------------- CONTACT API --------------------
 app.post("/api/contact", async (req, res) => {
   try {
-    console.log("📩 API HIT");
-    console.log("📩 Request Body:", req.body);
-
     const { name, email, message } = req.body;
 
-    // validation
     if (!name || !email || !message) {
       return res.status(400).json({
         success: false,
@@ -44,30 +70,17 @@ app.post("/api/contact", async (req, res) => {
 
     console.log("✅ Saved to MongoDB");
 
-    res.status(201).json({
+    return res.status(201).json({
       success: true,
       message: "Message saved successfully!",
     });
   } catch (err) {
     console.error("❌ Error saving contact:", err);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Server error",
     });
   }
 });
 
-// -------------------- MONGODB CONNECTION --------------------
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log("✅ MongoDB Connected:", mongoose.connection.name);
-  })
-  .catch((err) => {
-    console.error("❌ MongoDB Connection Error:", err.message);
-  });
-
-// -------------------- START SERVER --------------------
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+startServer();

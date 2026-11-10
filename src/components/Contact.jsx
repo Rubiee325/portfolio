@@ -6,6 +6,8 @@ import { slideIn, fadeIn, textVariant } from "../utils/motion";
 import { Button } from "@mui/material";
 import { Email, LinkedIn, GitHub, ArrowOutward } from "@mui/icons-material";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/contact";
+
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
@@ -15,35 +17,31 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setStatus("Sending...");
+    e.preventDefault();
+    setStatus("Sending...");
 
-  try {
-    const res = await fetch(
-      "https://portfolio-khua.onrender.com/api/contact",
-      {
+    try {
+      const res = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("✅ Message sent successfully!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("❌ Failed to send message. Try again.");
       }
-    );
-
-    const data = await res.json();
-
-    if (data.success) {
-      setStatus("✅ Message sent successfully!");
-      setForm({ name: "", email: "", message: "" });
-    } else {
-      setStatus("❌ Failed to send message. Try again.");
+    } catch (error) {
+      console.error(error);
+      setStatus("❌ Server error. Try again later.");
     }
-  } catch (error) {
-    console.error(error);
-    setStatus("❌ Server error. Try again later.");
-  }
-};
-
+  };
 
   return (
     <>
@@ -161,16 +159,15 @@ const Contact = () => {
         <h1 className="my-3 text-xl font-semibold text-slate-50">
           Thanks for scrolling.
         </h1>
-       <a
-  href="/Jeyarubi-resume (4).pdf"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <Button variant="outlined" endIcon={<ArrowOutward />}>
-    Resume
-  </Button>
-</a>
-
+        <a
+          href="/Jeyarubi-resume (4).pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button variant="outlined" endIcon={<ArrowOutward />}>
+            Resume
+          </Button>
+        </a>
       </motion.div>
       <hr className="ml-2 mt-4" />
     </>
