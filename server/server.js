@@ -15,15 +15,23 @@ const PORT = Number(process.env.PORT) || 5000;
 
 const allowedOrigins = [
   process.env.CLIENT_URL,
-  "https://portfolio-l9yh8r4b5-jeyarubis-projects.vercel.app",
   "https://portfolio-jeyarubis-projects.vercel.app",
+  "https://portfolio-l9yh8r4b5-jeyarubis-projects.vercel.app",
+  "https://portfolio-quw5y0tec-jeyarubis-projects.vercel.app",
   "http://localhost:3000",
   "http://127.0.0.1:3000",
 ].filter(Boolean);
 
+const isAllowedVercelPreview = (origin) =>
+  /^https:\/\/portfolio-[a-z0-9-]+-jeyarubis-projects\.vercel\.app$/.test(origin);
+
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (
+      !origin ||
+      allowedOrigins.includes(origin) ||
+      isAllowedVercelPreview(origin)
+    ) {
       return callback(null, true);
     }
 
@@ -37,12 +45,10 @@ app.use(cors({
 
 app.use(express.json({ limit: "20kb" }));
 
-// Backend test
 app.get("/", (req, res) => {
   res.send("Backend is running successfully!");
 });
 
-// Contact API - save only once
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, service, budget, timeline, message } = req.body;
@@ -85,7 +91,6 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// MongoDB connection and server start - only once
 const startServer = async () => {
   try {
     if (!process.env.MONGODB_URI) {
@@ -94,17 +99,16 @@ const startServer = async () => {
 
     await mongoose.connect(process.env.MONGODB_URI);
 
-    console.log("✅ MongoDB Connected:", mongoose.connection.name);
+    console.log("MongoDB Connected:", mongoose.connection.name);
 
     app.listen(PORT, () => {
-      console.log(`🚀 Backend running at http://localhost:${PORT}`);
+      console.log(`Backend running on port ${PORT}`);
     });
 
   } catch (err) {
-    console.error("❌ Startup Error:", err.message);
+    console.error("Startup Error:", err.message);
     process.exit(1);
   }
 };
 
-// Call only once
 startServer();
