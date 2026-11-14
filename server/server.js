@@ -5,6 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import dns from "node:dns";
 import Contact from "./models/Contact.js";
+import nodemailer from "nodemailer";
 
 dotenv.config();
 
@@ -45,10 +46,54 @@ app.use(cors({
 
 app.use(express.json({ limit: "20kb" }));
 
+// Gmail notification transporter
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_APP_PASSWORD?.replace(/\s/g, ""),
+  },
+});
+
+// Send enquiry notification
+const sendContactNotification = async (contact) => {
+  if (
+    !process.env.MAIL_USER ||
+    !process.env.MAIL_APP_PASSWORD ||
+    !process.env.NOTIFY_EMAIL
+  ) {
+    throw new Error("Email environment variables are missing");
+  }
+
+  await transporter.sendMail({
+    from: `"Portfolio Contact Form" <${process.env.MAIL_USER}>`,
+    to: process.env.NOTIFY_EMAIL,
+    replyTo: contact.email,
+    subject: "New Portfolio Project Inquiry",
+
+    text: `
+New project inquiry received!
+
+Name: ${contact.name}
+Email: ${contact.email}
+Service: ${contact.service || "Not specified"}
+Budget: ${contact.budget || "Not specified"}
+Timeline: ${contact.timeline || "Not specified"}
+
+Project Details:
+${contact.message}
+
+Received at: ${contact.createdAt}
+    `,
+  });
+};
+
+// Backend test
 app.get("/", (req, res) => {
   res.send("Backend is running successfully!");
 });
 
+// Contact API
 app.post("/api/contact", async (req, res) => {
   try {
     const { name, email, service, budget, timeline, message } = req.body;
@@ -60,6 +105,7 @@ app.post("/api/contact", async (req, res) => {
       });
     }
 
+    // Save contact in MongoDB
     const saved = await Contact.create({
       name,
       email,
@@ -76,9 +122,21 @@ app.post("/api/contact", async (req, res) => {
     const count = await Contact.countDocuments();
     console.log("Total Documents:", count);
 
+    // Email failure must not undo a successful database save
+    let emailSent = false;
+
+    try {
+      await sendContactNotification(saved);
+      emailSent = true;
+      console.log("Email notification sent successfully");
+    } catch (emailError) {
+      console.error("Email notification failed:", emailError.message);
+    }
+
     return res.status(201).json({
       success: true,
       message: "Project inquiry received successfully!",
+      emailNotification: emailSent,
     });
 
   } catch (err) {
@@ -91,6 +149,7 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
+// MongoDB connection and server start
 const startServer = async () => {
   try {
     if (!process.env.MONGODB_URI) {
