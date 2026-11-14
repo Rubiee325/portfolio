@@ -15,19 +15,24 @@ const PORT = Number(process.env.PORT) || 5000;
 
 const allowedOrigins = [
   process.env.CLIENT_URL,
+  "https://portfolio-l9yh8r4b5-jeyarubis-projects.vercel.app",
+  "https://portfolio-jeyarubis-projects.vercel.app",
   "http://localhost:3000",
   "http://127.0.0.1:3000",
 ].filter(Boolean);
 
-// Middleware - only once
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    return callback(new Error("Not allowed by CORS"));
+
+    console.error("Blocked CORS origin:", origin);
+    return callback(null, false);
   },
   credentials: true,
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
 app.use(express.json({ limit: "20kb" }));
