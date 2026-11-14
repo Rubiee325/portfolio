@@ -5,7 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import dns from "node:dns";
 import Contact from "./models/Contact.js";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 dotenv.config();
 
@@ -26,48 +26,39 @@ const allowedOrigins = [
 const isAllowedVercelPreview = (origin) =>
   /^https:\/\/portfolio-[a-z0-9-]+-jeyarubis-projects\.vercel\.app$/.test(origin);
 
-app.use(cors({
-  origin: (origin, callback) => {
-    if (
-      !origin ||
-      allowedOrigins.includes(origin) ||
-      isAllowedVercelPreview(origin)
-    ) {
-      return callback(null, true);
-    }
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        isAllowedVercelPreview(origin)
+      ) {
+        return callback(null, true);
+      }
 
-    console.error("Blocked CORS origin:", origin);
-    return callback(null, false);
-  },
-  credentials: true,
-  methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+      console.error("Blocked CORS origin:", origin);
+      return callback(null, false);
+    },
+    credentials: true,
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json({ limit: "20kb" }));
 
-// Gmail notification transporter
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_APP_PASSWORD?.replace(/\s/g, ""),
-  },
-});
-
-// Send enquiry notification
+// Resend email notification
 const sendContactNotification = async (contact) => {
-  if (
-    !process.env.MAIL_USER ||
-    !process.env.MAIL_APP_PASSWORD ||
-    !process.env.NOTIFY_EMAIL
-  ) {
-    throw new Error("Email environment variables are missing");
+  if (!process.env.RESEND_API_KEY || !process.env.NOTIFY_EMAIL) {
+    throw new Error("Resend environment variables are missing");
   }
 
-  await transporter.sendMail({
-    from: `"Portfolio Contact Form" <${process.env.MAIL_USER}>`,
-    to: process.env.NOTIFY_EMAIL,
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
+  const { data, error } = await resend.emails.send({
+    from: "Portfolio Contact Form <onboarding@resend.dev>",
+    to: [process.env.NOTIFY_EMAIL],
     replyTo: contact.email,
     subject: "New Portfolio Project Inquiry",
 
@@ -86,6 +77,12 @@ ${contact.message}
 Received at: ${contact.createdAt}
     `,
   });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  console.log("Resend email ID:", data?.id);
 };
 
 // Backend test
@@ -138,7 +135,6 @@ app.post("/api/contact", async (req, res) => {
       message: "Project inquiry received successfully!",
       emailNotification: emailSent,
     });
-
   } catch (err) {
     console.error("Contact save error:", err.message);
 
@@ -163,7 +159,6 @@ const startServer = async () => {
     app.listen(PORT, () => {
       console.log(`Backend running on port ${PORT}`);
     });
-
   } catch (err) {
     console.error("Startup Error:", err.message);
     process.exit(1);
